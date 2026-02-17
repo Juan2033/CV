@@ -1,3 +1,5 @@
+import { Settings } from 'lucide-react';
+
 export const experience = [
   {
     company: "Orbidi",
@@ -58,17 +60,23 @@ export const experience = [
 
 export const education = [
   {
-    title: "Ingeniero de Sofwtare",
+    title: "Ingeniero de Software",
     institution: "Corporación Universitaria Iberoamericana",
     dates: "2019 - 2025",
-    logo: "/logos/udemy.svg", 
+    logo: Settings,
   },
 ];
-
 
 export const certifications = [
   {
     title: "JavaScript Moderno",
+    issuer: "Udemy",
+    year: "2025",
+    url: "https://...",
+    logo: "/logos/udemy.svg",
+  },  
+  {
+    title: "CSS La guia completa",
     issuer: "Udemy",
     year: "2025",
     url: "https://...",
@@ -79,9 +87,9 @@ export const certifications = [
 export const courses = [
   {
     provider: "Udemy",
-    count: 3,
+    count: 2,
     logo: "/logos/udemy.svg",
-    items: ["Curso 1", "Curso 2"]
+    items: ["JavaScript Moderno", "CSS La guia completa"]
   }, 
 ];
 
