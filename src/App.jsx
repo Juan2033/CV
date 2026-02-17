@@ -4,6 +4,7 @@ import { experience, education, certifications, courses } from "./data/resume";
 import TechMarquee from "./components/TechMarquee";
 import { techStack } from "./data/resume";
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
+import profileImg from "./assets/profile.jpeg";
 
 import {
   GraduationCap,
@@ -210,7 +211,7 @@ export default function App() {
               <div className="avatarWrap">
                 <img
                   className="avatar"
-                  src="src/assets/profile.jpeg"
+                  src={profileImg}
                   alt="Foto de Juan Camilo"
                   width="420"
                   height="420"
@@ -320,7 +321,15 @@ export default function App() {
                   {
                     title: "Portfolio Personal – React",
                     desc: "Aplicación SPA desarrollada en React con animaciones personalizadas, carrusel con drag e inercia, sistema dinámico de experiencia profesional y diseño UI moderno enfocado en rendimiento y microinteracciones.",
-                    tags: ["React", "JavaScript (ES6+)", "CSS", "DOM APIs", "ResizeObserver", "POO","Event handling"],
+                    tags: [
+                      "React",
+                      "JavaScript (ES6+)",
+                      "CSS",
+                      "DOM APIs",
+                      "ResizeObserver",
+                      "POO",
+                      "Event handling",
+                    ],
                     github:
                       "https://github.com/Juan2033/Buscador-de-vehiculos.git",
                     demo: "https://buscador-vehiculos.netlify.app/",
