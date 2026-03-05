@@ -336,17 +336,24 @@ export default function App() {
                   {
                     title: "Administrador de citas",
                     desc: "Gestor de citas para una clínica/veterinaria: registra pacientes, muestra listados y permite editar/eliminar registros con validación y notificaciones.",
-                    tags: ["JavaScript", "Html", "Css (Tailwind CSS)"],
+                    tags: ["JavaScript", "Html", "CSS (Tailwind CSS)"],
                     github: "https://github.com/Juan2033/Administrador-De-Citas.git",
                     demo: "https://administrador-de-citas-jcbc.netlify.app/",
                   },
                   {
                     title: "Control de gastos",
                     desc: "Aplicación de control de presupuesto que permite registrar gastos, calcular saldo restante en tiempo real y mostrar alertas visuales según el porcentaje consumido.",
-                    tags: ["JavaScript", "Html", "Css (Bootstrap)", "POO", "DOM Manipulation"],
+                    tags: ["JavaScript", "Html", "CSS (Bootstrap)", "POO", "DOM Manipulation"],
                     github: "https://github.com/Juan2033/Control-de-gastos.git",
                     demo: "https://control-de-gastos-jcbc.netlify.app/",
-                  }                             
+                  },   
+                  {
+                    title: "AI Chat Web App",
+                    desc: "Aplicación web full-stack que permite a los usuarios interactuar con un chat que genera respuestas dinámicas consumiendo una API externa.",
+                    tags: ["JavaScript", "Html5", "CSS", "Node.js", "Express.js", "Render (backend + hosting)", "Netlify (frontend hosting)"],
+                    github: "https://github.com/Juan2033/AI-Chat-Web-App.git",
+                    demo: "https://ai-chat-web-app.onrender.com",
+                  }                           
 
                 
                 ].map((p) => (
