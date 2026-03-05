@@ -306,6 +306,13 @@ export default function App() {
                     demo: "https://buscador-vehiculos.netlify.app/",
                   },
                   {
+                    title: "AI Chat Web App",
+                    desc: "Aplicación web full-stack que permite a los usuarios interactuar con un chat que genera respuestas dinámicas consumiendo una API externa.",
+                    tags: ["JavaScript", "Html5", "CSS", "Node.js", "Express.js", "Render (backend + hosting)", "Netlify (frontend hosting)"],
+                    github: "https://github.com/Juan2033/AI-Chat-Web-App.git",
+                    demo: "https://ai-chat-web-app.onrender.com",
+                  } ,
+                  {
                   title: "Administrador de citas + IndexedDB",
                   desc: "Aplicación web para la gestión de citas en una clínica veterinaria. Permite registrar, editar y eliminar pacientes utilizando IndexedDB para persistencia de datos en el navegador.",
                   tags: ["JavaScript", "IndexedDB", "CRUD", "DOM Manipulation", "Local Storage"],
@@ -346,14 +353,8 @@ export default function App() {
                     tags: ["JavaScript", "Html", "CSS (Bootstrap)", "POO", "DOM Manipulation"],
                     github: "https://github.com/Juan2033/Control-de-gastos.git",
                     demo: "https://control-de-gastos-jcbc.netlify.app/",
-                  },   
-                  {
-                    title: "AI Chat Web App",
-                    desc: "Aplicación web full-stack que permite a los usuarios interactuar con un chat que genera respuestas dinámicas consumiendo una API externa.",
-                    tags: ["JavaScript", "Html5", "CSS", "Node.js", "Express.js", "Render (backend + hosting)", "Netlify (frontend hosting)"],
-                    github: "https://github.com/Juan2033/AI-Chat-Web-App.git",
-                    demo: "https://ai-chat-web-app.onrender.com",
-                  }                           
+                  } 
+                                            
 
                 
                 ].map((p) => (
