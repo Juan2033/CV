@@ -14,9 +14,19 @@ const roles = ["Frontend Developer", "Junior Cybersecurity Analyst"];
 export default function App() {
   // ===== Projects carousel refs + controls =====
   const trackRef = useRef(null);
+  const apiTrackRef = useRef(null);
+  const websitesTrackRef = useRef(null);
 
   const scrollByAmount = (amount) => {
     trackRef.current?.scrollBy({ left: amount, behavior: "smooth" });
+  };
+
+  const scrollByAmountApi = (amount) => {
+    apiTrackRef.current?.scrollBy({ left: amount, behavior: "smooth" });
+  };
+
+  const scrollByAmountWebsites = (amount) => {
+    websitesTrackRef.current?.scrollBy({ left: amount, behavior: "smooth" });
   };
 
   // ===== DRAG + INERCIA (mouse) =====
@@ -101,6 +111,170 @@ export default function App() {
     el.classList.remove("dragging");
 
     rafRef.current = requestAnimationFrame(momentumScroll);
+  };
+
+  // ===== API Projects carousel refs + controls =====
+  const apiIsDownRef = useRef(false);
+  const apiStartXRef = useRef(0);
+  const apiStartScrollLeftRef = useRef(0);
+  const apiLastXRef = useRef(0);
+  const apiLastTimeRef = useRef(0);
+  const apiVelocityRef = useRef(0);
+  const apiRafRef = useRef(0);
+
+  const apiStopMomentum = () => {
+    if (apiRafRef.current) cancelAnimationFrame(apiRafRef.current);
+    apiRafRef.current = 0;
+  };
+
+  const apiMomentumScroll = () => {
+    const el = apiTrackRef.current;
+    if (!el) return;
+
+    apiVelocityRef.current *= 0.92;
+
+    if (Math.abs(apiVelocityRef.current) < 0.2) {
+      apiStopMomentum();
+
+      const cardWidth = 360 + 18; // 360 card + 18 gap (igual a tu CSS)
+      const snapped = Math.round(el.scrollLeft / cardWidth) * cardWidth;
+
+      el.scrollTo({ left: snapped, behavior: "smooth" });
+      return;
+    }
+
+    el.scrollLeft -= apiVelocityRef.current;
+    apiRafRef.current = requestAnimationFrame(apiMomentumScroll);
+  };
+
+  const apiOnMouseDown = (e) => {
+    const el = apiTrackRef.current;
+    if (!el) return;
+
+    apiStopMomentum();
+
+    apiIsDownRef.current = true;
+    el.classList.add("dragging");
+
+    apiStartXRef.current = e.pageX;
+    apiStartScrollLeftRef.current = el.scrollLeft;
+
+    apiLastXRef.current = e.pageX;
+    apiLastTimeRef.current = performance.now();
+    apiVelocityRef.current = 0;
+  };
+
+  const apiOnMouseMove = (e) => {
+    const el = apiTrackRef.current;
+    if (!el || !apiIsDownRef.current) return;
+
+    e.preventDefault();
+
+    const dx = e.pageX - apiStartXRef.current;
+    el.scrollLeft = apiStartScrollLeftRef.current - dx;
+
+    const now = performance.now();
+    const dt = now - apiLastTimeRef.current;
+    if (dt > 0) {
+      const dx2 = e.pageX - apiLastXRef.current;
+      apiVelocityRef.current = clamp((dx2 / dt) * 18, -60, 60);
+    }
+
+    apiLastXRef.current = e.pageX;
+    apiLastTimeRef.current = now;
+  };
+
+  const apiStopDrag = () => {
+    const el = apiTrackRef.current;
+    if (!el) return;
+    if (!apiIsDownRef.current) return;
+
+    apiIsDownRef.current = false;
+    el.classList.remove("dragging");
+
+    apiRafRef.current = requestAnimationFrame(apiMomentumScroll);
+  };
+
+  // ===== Websites carousel refs + controls =====
+  const websitesIsDownRef = useRef(false);
+  const websitesStartXRef = useRef(0);
+  const websitesStartScrollLeftRef = useRef(0);
+  const websitesLastXRef = useRef(0);
+  const websitesLastTimeRef = useRef(0);
+  const websitesVelocityRef = useRef(0);
+  const websitesRafRef = useRef(0);
+
+  const websitesStopMomentum = () => {
+    if (websitesRafRef.current) cancelAnimationFrame(websitesRafRef.current);
+    websitesRafRef.current = 0;
+  };
+
+  const websitesMomentumScroll = () => {
+    const el = websitesTrackRef.current;
+    if (!el) return;
+
+    websitesVelocityRef.current *= 0.92;
+
+    if (Math.abs(websitesVelocityRef.current) < 0.2) {
+      websitesStopMomentum();
+
+      const cardWidth = 360 + 18; // 360 card + 18 gap (igual a tu CSS)
+      const snapped = Math.round(el.scrollLeft / cardWidth) * cardWidth;
+
+      el.scrollTo({ left: snapped, behavior: "smooth" });
+      return;
+    }
+
+    el.scrollLeft -= websitesVelocityRef.current;
+    websitesRafRef.current = requestAnimationFrame(websitesMomentumScroll);
+  };
+
+  const websitesOnMouseDown = (e) => {
+    const el = websitesTrackRef.current;
+    if (!el) return;
+
+    websitesStopMomentum();
+
+    websitesIsDownRef.current = true;
+    el.classList.add("dragging");
+
+    websitesStartXRef.current = e.pageX;
+    websitesStartScrollLeftRef.current = el.scrollLeft;
+
+    websitesLastXRef.current = e.pageX;
+    websitesLastTimeRef.current = performance.now();
+    websitesVelocityRef.current = 0;
+  };
+
+  const websitesOnMouseMove = (e) => {
+    const el = websitesTrackRef.current;
+    if (!el || !websitesIsDownRef.current) return;
+
+    e.preventDefault();
+
+    const dx = e.pageX - websitesStartXRef.current;
+    el.scrollLeft = websitesStartScrollLeftRef.current - dx;
+
+    const now = performance.now();
+    const dt = now - websitesLastTimeRef.current;
+    if (dt > 0) {
+      const dx2 = e.pageX - websitesLastXRef.current;
+      websitesVelocityRef.current = clamp((dx2 / dt) * 18, -60, 60);
+    }
+
+    websitesLastXRef.current = e.pageX;
+    websitesLastTimeRef.current = now;
+  };
+
+  const websitesStopDrag = () => {
+    const el = websitesTrackRef.current;
+    if (!el) return;
+    if (!websitesIsDownRef.current) return;
+
+    websitesIsDownRef.current = false;
+    el.classList.remove("dragging");
+
+    websitesRafRef.current = requestAnimationFrame(websitesMomentumScroll);
   };
 
   // ===== Typewriter (roles) =====
@@ -419,46 +593,171 @@ export default function App() {
                 Sitios en vivo (clientes).
               </p>
 
-              <div className="websitesGrid">
-                {[
-                  { name: "Ugga Street Burger", url: "https://www.uggastreetburger.com/", stack: "Website" },
-                  { name: "Concepta", url: "https://www.conceptacollective.es/", stack: "Website" },
-                  { name: "Centro Horitzo", url: "https://www.centrohoritzo.es/", stack: "Website" },
-                  { name: "Dairys Marquez", url: "https://www.dairysmarquezbellezaintegral.com/", stack: "Website" },
-                  { name: "Fran & Moreno", url: "https://franymoreno.com/", stack: "Website" },
-                  { name: "Taco and Roll", url: "https://www.tacoandroll.pro/", stack: "Website" },
-                  { name: "Flavia Karina", url: "https://www.flaviaquirogacomunicacion.com/", stack: "Website" },
-                  { name: "Ous La Salut", url: "https://www.ouslasalut.com/", stack: "Website" },
-                  { name: "Glia", url: "https://www.gliaformaciones.es/", stack: "Website" },
-                ].map((s) => {
-                  const host = new URL(s.url).hostname.replace("www.", "");
-                  return (
-                    <article key={s.url} className="websiteCard">
-                      <div className="websiteTop">
-                        <img
-                          className="websiteFavicon"
-                          src={`https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(s.url)}`}
-                          alt=""
-                          loading="lazy"
-                        />
+              <div className="projectsCarousel">
+                <button
+                  className="carouselBtn"
+                  type="button"
+                  aria-label="Anterior"
+                  onClick={() => scrollByAmountWebsites(-380)}
+                >
+                  ‹
+                </button>
 
-                        <div className="websiteTopText">
-                          <h4 className="websiteTitle">{s.name}</h4>
-                          <p className="websiteHost">{host}</p>
+                <div
+                  className="projectsTrack"
+                  ref={websitesTrackRef}
+                  role="list"
+                  onMouseDown={websitesOnMouseDown}
+                  onMouseUp={websitesStopDrag}
+                  onMouseLeave={websitesStopDrag}
+                  onMouseMove={websitesOnMouseMove}
+                  onDragStart={(e) => e.preventDefault()}
+                >
+                  {[
+                    { name: "Ugga Street Burger", url: "https://www.uggastreetburger.com/", stack: "Website" },
+                    { name: "Concepta", url: "https://www.conceptacollective.es/", stack: "Website" },
+                    { name: "Centro Horitzo", url: "https://www.centrohoritzo.es/", stack: "Website" },
+                    { name: "Dairys Marquez", url: "https://www.dairysmarquezbellezaintegral.com/", stack: "Website" },
+                    { name: "Fran & Moreno", url: "https://franymoreno.com/", stack: "Website" },
+                    { name: "Taco and Roll", url: "https://www.tacoandroll.pro/", stack: "Website" },
+                    { name: "Flavia Karina", url: "https://www.flaviaquirogacomunicacion.com/", stack: "Website" },
+                    { name: "Ous La Salut", url: "https://www.ouslasalut.com/", stack: "Website" },
+                    { name: "Glia", url: "https://www.gliaformaciones.es/", stack: "Website" },
+                  ].map((s) => {
+                    const host = new URL(s.url).hostname.replace("www.", "");
+                    return (
+                      <article key={s.url} className="projectCard projectCard--slide" role="listitem">
+                        <div className="projectBody">
+                          <div className="projectCardHeader">
+                            <div className="projectCardHeaderText">
+                              <h3 className="projectTitle">
+                                <img
+                                  className="websiteFavicon"
+                                  src={`https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(s.url)}`}
+                                  alt=""
+                                  loading="lazy"
+                                />
+                                {s.name}
+                              </h3>
+                              <p className="projectDesc websiteDesc">{host}</p>
+
+                              {s.stack ? <span className="tag">{s.stack}</span> : null}
+                            </div>
+                          </div>
+
+                          <div className="projectCardFooter">
+                            <a className="demoBtn" href={s.url} target="_blank" rel="noopener noreferrer">
+                              Visitar ↗
+                            </a>
+                          </div>
                         </div>
+                      </article>
+                    );
+                  })}
+                </div>
 
-                        {s.stack ? <span className="websitePill">{s.stack}</span> : null}
+                <button
+                  className="carouselBtn"
+                  type="button"
+                  aria-label="Siguiente"
+                  onClick={() => scrollByAmountWebsites(380)}
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="api-projects" className="section">
+          <div className="sectionInner">
+            <h2>Proyectos con APIs</h2>
+            <p style={{ color: "var(--muted)", marginTop: 6 }}>
+              Proyectos que integran y consumen APIs externas para funcionalidades dinámicas.
+            </p>
+
+            <div className="projectsCarousel">
+              <button
+                className="carouselBtn"
+                type="button"
+                aria-label="Anterior"
+                onClick={() => scrollByAmountApi(-380)}
+              >
+                ‹
+              </button>
+
+              <div
+                className="projectsTrack"
+                ref={apiTrackRef}
+                role="list"
+                onMouseDown={apiOnMouseDown}
+                onMouseUp={apiStopDrag}
+                onMouseLeave={apiStopDrag}
+                onMouseMove={apiOnMouseMove}
+                onDragStart={(e) => e.preventDefault()}
+              >
+                {[
+                  {
+                    title: "AI Chat Web App",
+                    desc: "Aplicación web full-stack que permite a los usuarios interactuar con un chat que genera respuestas dinámicas consumiendo una API externa.",
+                    tags: ["JavaScript", "Html5", "CSS", "Node.js", "Express.js", "Render (backend + hosting)", "Netlify (frontend hosting)"],
+                    github: "https://github.com/Juan2033/AI-Chat-Web-App.git",
+                    demo: "https://ai-chat-web-app.onrender.com",
+                  },
+                ].map((p) => (
+                  <article key={p.title} className="projectCard projectCard--slide" role="listitem">
+                    <div className="projectBody">
+                      <h3 className="projectTitle">{p.title}</h3>
+                      <p className="projectDesc">{p.desc}</p>
+
+                      <div className="tags">
+                        {p.tags.map((t) => (
+                          <span key={t} className="tag">
+                            {t}
+                          </span>
+                        ))}
                       </div>
 
-                      <div className="websiteActions">
-                        <a className="websiteBtn" href={s.url} target="_blank" rel="noopener noreferrer">
-                          Visitar ↗
+                      <div className="projectActions">
+                        <a
+                          className="ghIcon"
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`GitHub: ${p.title}`}
+                          title="Ver en GitHub"
+                        >
+                          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                            <path
+                              fill="currentColor"
+                              d="M12 .5C5.73.5.75 5.6.75 12c0 5.2 3.44 9.6 8.2 11.17.6.12.82-.27.82-.6
+                                0-.3-.01-1.1-.02-2.16-3.34.75-4.04-1.66-4.04-1.66-.54-1.4-1.33-1.78-1.33-1.78-1.09-.77.08-.76.08-.76
+                                1.2.09 1.83 1.27 1.83 1.27 1.07 1.87 2.8 1.33 3.48 1.02.11-.8.42-1.33.76-1.63-2.66-.31-5.46-1.36-5.46-6.06
+                                0-1.34.46-2.43 1.22-3.29-.12-.31-.53-1.56.12-3.25 0 0 1-.33 3.3 1.26.96-.27 1.99-.4 3.01-.4
+                                1.02 0 2.05.14 3.01.4 2.3-1.59 3.3-1.26 3.3-1.26.65 1.69.24 2.94.12 3.25.76.86 1.22 1.95 1.22 3.29
+                                0 4.71-2.8 5.74-5.47 6.05.43.38.81 1.12.81 2.26 0 1.63-.02 2.94-.02 3.34 0 .33.22.72.83.6
+                                4.76-1.57 8.2-5.97 8.2-11.17C23.25 5.6 18.27.5 12 .5Z"
+                            />
+                          </svg>
+                        </a>
+
+                        <a className="demoBtn" href={p.demo} target="_blank" rel="noopener noreferrer">
+                          Demo
                         </a>
                       </div>
-                    </article>
-                  );
-                })}
+                    </div>
+                  </article>
+                ))}
               </div>
+
+              <button
+                className="carouselBtn"
+                type="button"
+                aria-label="Siguiente"
+                onClick={() => scrollByAmountApi(380)}
+              >
+                ›
+              </button>
             </div>
           </div>
         </section>
@@ -474,9 +773,15 @@ export default function App() {
               {experience.map((c, idx) => (
                 <div key={c.company} className="expBlock">
                   <div className="expCompanyRow">
-                    <div className="expLogo">{c.company.slice(0, 1)}</div>
+                      <div className="expLogo">
+                        {c.logo ? (
+                          <img src={c.logo} alt={c.company} className="expLogoImg" />
+                        ) : (
+                          c.company.slice(0, 1)
+                        )}
+                      </div>
 
-                    <div className="expCompanyMeta">
+                      <div className="expCompanyMeta">
                       <div className="expCompanyTop">
                         <h3 className="expCompanyName">{c.company}</h3>
                         <div className="expCompanyPeriod">{c.period}</div>
@@ -562,8 +867,9 @@ export default function App() {
 
                   <div className="miniText">
                     <h3 className="miniTitle">{c.title}</h3>
-                    <p className="miniMeta miniMeta--accent">{c.issuer}</p>
-                    <p className="miniMeta">{c.year}</p>
+                    <p className="miniMeta miniMeta--accent">{c.issuer}</p>  
+                    <p className="miniMeta">{c.year}</p> 
+                    <p className="miniMeta miniMeta--accent"><a href={c.url} target="_blank" rel="noopener noreferrer">Enlace</a></p>               
                   </div>
                 </div>
               ))}

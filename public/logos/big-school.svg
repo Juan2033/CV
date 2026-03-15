@@ -1,0 +1,8 @@
+<svg viewBox="0 0 440 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- White square for BIG -->
+  <rect x="0" y="0" width="130" height="130" fill="white" rx="4"/>
+  <!-- BIG text dark on white square -->
+  <text x="65" y="92" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="52" fill="#000000" text-anchor="middle" letter-spacing="-1">BIG</text>
+  <!-- school text in white -->
+  <text x="290" y="92" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="58" fill="white" text-anchor="middle">school</text>
+</svg>

@@ -2,22 +2,22 @@ import { Settings } from 'lucide-react';
 
 export const experience = [
   {
+    logo: "/logos/ORBIDI.png",
     company: "Orbidi",
     period: "2024 – Actualidad",
-    url: "https://orbidi.com", 
+    url: "https://orbidi.com",
     roles: [
       {
         title: "Implementador Web / Seo",
         dates: "2024 – Actualidad",
         bullets: [
-          "Desarrollo e implementación de sitios web y aplicaciones web según los requerimientos del cliente aplicando estándares de calidad y buenas prácticas de desarrollo.",
-          "Configuración, personalización y mantenimiento de CMS, con amplia experiencia en WordPress, así como manejo de plataformas como Shopify, PrestaShop, Wix y otros sistemas de gestión de contenido.",
-          "Administración integral de dominios, configuración de DNS, correos corporativos y servicios de hosting.",
-          "Optimización del rendimiento y velocidad de sitios web, mejorando la experiencia de usuario y los indicadores de posicionamiento.",
-          "Implementación de estrategias de SEO On Page y SEO Técnico, auditoría y optimización de sitiosexistentes de clientes, utilizando herramientas como SE Ranking.",
-          "Validación de compatibilidad y correcta visualización en diferentes navegadores y dispositivos (responsive design).",
-          "Ejecución de pruebas funcionales, soporte técnico y resolución de incidencias en entornos web.",
-          "Creo plantillas reutilizables con Elementor y Crocoblock (JetEngine), reduciendo tiempos de desarrollo en 40%",
+          "Desarrollé e implementé sitios web según los requerimientos del cliente, aplicando estándares de calidad, buenas prácticas de desarrollo y optimización para motores de búsqueda.",
+          "Configuré, personalicé y mantuve plataformas CMS como WordPress, Shopify, PrestaShop y Wix para distintos tipos de proyectos web.",
+          "Administré dominios, DNS, correos corporativos y servicios de hosting para garantizar la correcta operación de los sitios web.",
+          "Optimicé el rendimiento y velocidad de sitios web mejorando indicadores de Core Web Vitals y métricas clave de SEO.",
+          "Implementé estrategias de SEO On Page y SEO Técnico mediante auditorías y seguimiento con herramientas como SE Ranking y Google Search Console.",
+          "Desarrollé plantillas reutilizables con Elementor y Crocoblock (JetEngine), reduciendo los tiempos de desarrollo de nuevos sitios web en aproximadamente un 40%.",
+          "Realicé pruebas de compatibilidad cross-browser, soporte técnico y resolución de incidencias en entornos productivos.",
         ],
       },
     ],
@@ -25,16 +25,15 @@ export const experience = [
   {
     company: "Helm Brand LLC",
     period: "2023 – 2024",
-    url: "https://orbidi.com", 
+    url: "https://orbidi.com",
     roles: [
       {
         title: "Desarrollador Web",
         dates: "2023 – 2024",
         bullets: [
-          "Desarrollé 12+ sitios web y aplicaciones desde implementación hasta producción",
-          "Optimicé sitios existentes logrando 25% de reducción en tasa de rebote promedio",
-          "Trabajé con CMS WordPress y desarrollos a medida, asegurando rendimiento y experiencia de usuario",
-          "Implementé mejoras de velocidad, usabilidad y SEO técnico en proyectos de clientes",
+          "Desarrollé más de 12 sitios web para clientes utilizando WordPress y soluciones personalizadas, desde la implementación inicial hasta la puesta en producción.",
+          "Optimicé sitios web existentes mediante mejoras de rendimiento, experiencia de usuario y SEO técnico, logrando reducir la tasa de rebote promedio en un 25%.",
+          "Implementé mejoras de velocidad, usabilidad y posicionamiento SEO en proyectos web para clientes de diferentes sectores.",
         ],
       },
     ],
@@ -42,16 +41,15 @@ export const experience = [
   {
     company: "Biolab Diagnostica",
     period: "2022 – 2023",
-    url: "https://orbidi.com", 
+    url: "https://orbidi.com",
     roles: [
       {
         title: "Desarrollador Web",
         dates: "2022 – 2023",
         bullets: [
-          "Desarrollé 5+ aplicaciones web internas para digitalizar procesos del laboratorio",
-          "Automaticé flujos de trabajo con Google Apps Script, reduciendo tiempo manual en 30%",
-          "Mantuve y actualicé el sitio web corporativo según requerimientos",
-          "Apoyé la digitalización de procesos, mejorando la eficiencia operativa",
+          "Desarrollé más de 5 aplicaciones web internas para digitalizar procesos operativos del laboratorio clínico.",
+          "Automaticé flujos de trabajo mediante Google Apps Script, reduciendo el tiempo manual en procesos administrativos en aproximadamente un 30%.",
+          "Mantuve y actualicé el sitio web corporativo de la empresa según los requerimientos del área administrativa y de comunicación.",
         ],
       },
     ],
@@ -71,17 +69,30 @@ export const certifications = [
   {
     title: "JavaScript Moderno",
     issuer: "Udemy",
-    year: "2025",
-    url: "https://...",
+    year: "2025",    
     logo: "/logos/udemy.svg",
-  },  
+  },
   {
     title: "CSS La guia completa",
     issuer: "Udemy",
-    year: "2025",
-    url: "https://...",
+    year: "2025",    
     logo: "/logos/udemy.svg",
-  },  
+  },
+  {
+    title: "Claude Code in Action",
+    issuer: "Anthropic Education",
+    year: "2025",
+    url: "http://verify.skilljar.com/c/dn6xggg7h6vz",
+    logo: "/logos/claude.png",
+  },
+  {
+    title: "Desarrollo con IA",
+    issuer: "BIG school",
+    year: "2025",
+    url: "https://drive.google.com/file/d/1VrSDT0x1GmUu6L5QQZJ1ML6Yw0q_fUvv/view?usp=sharing",
+    logo: "/logos/big-school.svg",
+  }
+
 ];
 
 export const courses = [
@@ -90,7 +101,19 @@ export const courses = [
     count: 2,
     logo: "/logos/udemy.svg",
     items: ["JavaScript Moderno", "CSS La guia completa"]
-  }, 
+  },
+  {
+    provider: "Anthropic Education",
+    count: 1,
+    logo: "/logos/claude.png",
+    items: ["Claude Code in Action"]
+  },
+  {
+    provider: "BIG school",
+    count: 1,
+    logo: "/logos/big-school.svg",
+    items: ["Desarrollo con IA"]
+  }
 ];
 
 
