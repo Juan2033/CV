@@ -485,14 +485,14 @@ export default function App() {
                     tags: ["JavaScript", "Html5", "CSS", "Node.js", "Express.js", "Render (backend + hosting)", "Netlify (frontend hosting)"],
                     github: "https://github.com/Juan2033/AI-Chat-Web-App.git",
                     demo: "https://ai-chat-web-app.onrender.com",
-                  } ,
+                  },
                   {
-                  title: "Administrador de citas + IndexedDB",
-                  desc: "Aplicación web para la gestión de citas en una clínica veterinaria. Permite registrar, editar y eliminar pacientes utilizando IndexedDB para persistencia de datos en el navegador.",
-                  tags: ["JavaScript", "IndexedDB", "CRUD", "DOM Manipulation", "Local Storage"],
-                  github: "https://github.com/Juan2033/veterinary-crud-indexeddb.git",
-                  demo: "https://administrador-de-citas-indexdb.netlify.app/",
-                } ,
+                    title: "Administrador de citas + IndexedDB",
+                    desc: "Aplicación web para la gestión de citas en una clínica veterinaria. Permite registrar, editar y eliminar pacientes utilizando IndexedDB para persistencia de datos en el navegador.",
+                    tags: ["JavaScript", "IndexedDB", "CRUD", "DOM Manipulation", "Local Storage"],
+                    github: "https://github.com/Juan2033/veterinary-crud-indexeddb.git",
+                    demo: "https://administrador-de-citas-indexdb.netlify.app/",
+                  },
                   {
                     title: "Buscador de autos",
                     desc: "Buscador de autos con filtros en tiempo real (marca, año, precio, puertas, transmisión y color) que actualiza el listado dinámicamente y muestra un mensaje cuando no hay resultados.",
@@ -527,53 +527,53 @@ export default function App() {
                     tags: ["JavaScript", "Html", "CSS (Bootstrap)", "POO", "DOM Manipulation"],
                     github: "https://github.com/Juan2033/Control-de-gastos.git",
                     demo: "https://control-de-gastos-jcbc.netlify.app/",
-                  } 
-                                            
+                  }
 
-                
+
+
                 ].map((p) => (
-                <article key={p.title} className="projectCard projectCard--slide" role="listitem">
-                  <div className="projectBody">
-                    <h3 className="projectTitle">{p.title}</h3>
-                    <p className="projectDesc">{p.desc}</p>
+                  <article key={p.title} className="projectCard projectCard--slide" role="listitem">
+                    <div className="projectBody">
+                      <h3 className="projectTitle">{p.title}</h3>
+                      <p className="projectDesc">{p.desc}</p>
 
-                    <div className="tags">
-                      {p.tags.map((t) => (
-                        <span key={t} className="tag">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                      <div className="tags">
+                        {p.tags.map((t) => (
+                          <span key={t} className="tag">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
 
-                    <div className="projectActions">
-                      <a
-                        className="ghIcon"
-                        href={p.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`GitHub: ${p.title}`}
-                        title="Ver en GitHub"
-                      >
-                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                          <path
-                            fill="currentColor"
-                            d="M12 .5C5.73.5.75 5.6.75 12c0 5.2 3.44 9.6 8.2 11.17.6.12.82-.27.82-.6
+                      <div className="projectActions">
+                        <a
+                          className="ghIcon"
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`GitHub: ${p.title}`}
+                          title="Ver en GitHub"
+                        >
+                          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                            <path
+                              fill="currentColor"
+                              d="M12 .5C5.73.5.75 5.6.75 12c0 5.2 3.44 9.6 8.2 11.17.6.12.82-.27.82-.6
                               0-.3-.01-1.1-.02-2.16-3.34.75-4.04-1.66-4.04-1.66-.54-1.4-1.33-1.78-1.33-1.78-1.09-.77.08-.76.08-.76
                               1.2.09 1.83 1.27 1.83 1.27 1.07 1.87 2.8 1.33 3.48 1.02.11-.8.42-1.33.76-1.63-2.66-.31-5.46-1.36-5.46-6.06
                               0-1.34.46-2.43 1.22-3.29-.12-.31-.53-1.56.12-3.25 0 0 1-.33 3.3 1.26.96-.27 1.99-.4 3.01-.4
                               1.02 0 2.05.14 3.01.4 2.3-1.59 3.3-1.26 3.3-1.26.65 1.69.24 2.94.12 3.25.76.86 1.22 1.95 1.22 3.29
                               0 4.71-2.8 5.74-5.47 6.05.43.38.81 1.12.81 2.26 0 1.63-.02 2.94-.02 3.34 0 .33.22.72.83.6
                               4.76-1.57 8.2-5.97 8.2-11.17C23.25 5.6 18.27.5 12 .5Z"
-                          />
-                        </svg>
-                      </a>
+                            />
+                          </svg>
+                        </a>
 
-                      <a className="demoBtn" href={p.demo} target="_blank" rel="noopener noreferrer">
-                        Demo
-                      </a>
+                        <a className="demoBtn" href={p.demo} target="_blank" rel="noopener noreferrer">
+                          Demo
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
                 ))}
               </div>
 
@@ -704,6 +704,20 @@ export default function App() {
                     github: "https://github.com/Juan2033/AI-Chat-Web-App.git",
                     demo: "https://ai-chat-web-app.onrender.com",
                   },
+                  {
+                    title: "Buscador de clima",
+                    desc: "Aplicación web que permite a los usuarios buscar información sobre el clima según ciudad y país.",
+                    tags: ["JavaScript", "HTML5", "CSS3", "Tailwind CSS", "OpenWeatherMap API"],
+                    github: "https://github.com/Juan2033/proyecto-clima.git",
+                    demo: "https://proyecto-clima-api-jcbc.netlify.app/",
+                  },
+                  {
+                    title: "Buscador de Recetas",
+                    desc: "Aplicación web para buscar y explorar recetas de cocina, ver sus detalles e ingredientes, y guardar tus favoritas.",
+                    tags: ["JavaScript", "HTML5", "CSS3", "Bootstrap 5", "TheMealDB API"],
+                    github: "https://github.com/Juan2033/buscador-recetas.git",
+                    demo: "https://buscador-recetas-api-jcbc.netlify.app/",
+                  },
                 ].map((p) => (
                   <article key={p.title} className="projectCard projectCard--slide" role="listitem">
                     <div className="projectBody">
@@ -773,15 +787,15 @@ export default function App() {
               {experience.map((c, idx) => (
                 <div key={c.company} className="expBlock">
                   <div className="expCompanyRow">
-                      <div className="expLogo">
-                        {c.logo ? (
-                          <img src={c.logo} alt={c.company} className="expLogoImg" />
-                        ) : (
-                          c.company.slice(0, 1)
-                        )}
-                      </div>
+                    <div className="expLogo">
+                      {c.logo ? (
+                        <img src={c.logo} alt={c.company} className="expLogoImg" />
+                      ) : (
+                        c.company.slice(0, 1)
+                      )}
+                    </div>
 
-                      <div className="expCompanyMeta">
+                    <div className="expCompanyMeta">
                       <div className="expCompanyTop">
                         <h3 className="expCompanyName">{c.company}</h3>
                         <div className="expCompanyPeriod">{c.period}</div>
@@ -867,9 +881,9 @@ export default function App() {
 
                   <div className="miniText">
                     <h3 className="miniTitle">{c.title}</h3>
-                    <p className="miniMeta miniMeta--accent">{c.issuer}</p>  
-                    <p className="miniMeta">{c.year}</p> 
-                    <p className="miniMeta miniMeta--accent"><a href={c.url} target="_blank" rel="noopener noreferrer">Enlace</a></p>               
+                    <p className="miniMeta miniMeta--accent">{c.issuer}</p>
+                    <p className="miniMeta">{c.year}</p>
+                    <p className="miniMeta miniMeta--accent"><a href={c.url} target="_blank" rel="noopener noreferrer">Enlace</a></p>
                   </div>
                 </div>
               ))}
