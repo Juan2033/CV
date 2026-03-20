@@ -478,14 +478,7 @@ export default function App() {
                     tags: ["React", "JavaScript (ES6+)", "CSS", "DOM APIs", "ResizeObserver", "POO", "Event handling"],
                     github: "https://github.com/Juan2033/Buscador-de-vehiculos.git",
                     demo: "https://buscador-vehiculos.netlify.app/",
-                  },
-                  {
-                    title: "AI Chat Web App",
-                    desc: "Aplicación web full-stack que permite a los usuarios interactuar con un chat que genera respuestas dinámicas consumiendo una API externa.",
-                    tags: ["JavaScript", "Html5", "CSS", "Node.js", "Express.js", "Render (backend + hosting)", "Netlify (frontend hosting)"],
-                    github: "https://github.com/Juan2033/AI-Chat-Web-App.git",
-                    demo: "https://ai-chat-web-app.onrender.com",
-                  },
+                  },                  
                   {
                     title: "Administrador de citas + IndexedDB",
                     desc: "Aplicación web para la gestión de citas en una clínica veterinaria. Permite registrar, editar y eliminar pacientes utilizando IndexedDB para persistencia de datos en el navegador.",
