@@ -478,7 +478,14 @@ export default function App() {
                     tags: ["React", "JavaScript (ES6+)", "CSS", "DOM APIs", "ResizeObserver", "POO", "Event handling"],
                     github: "https://github.com/Juan2033/Buscador-de-vehiculos.git",
                     demo: "https://buscador-vehiculos.netlify.app/",
-                  },                  
+                  },
+                  {
+                    title: "Cotizador de Préstamos – React",
+                    desc: "Aplicación para cotizar préstamos en tiempo real. Permite seleccionar el monto y plazo de pago, calculando automáticamente el total e intereses a pagar de forma mensual.",
+                    tags: ["React", "JavaScript", "Tailwind CSS", "Vite", "Hooks"],
+                    github: "https://github.com/Juan2033/cotizador-prestamos-react.git",
+                    demo: "https://cotizador-prestamos-react-jcbc.netlify.app/",
+                  },
                   {
                     title: "Administrador de citas + IndexedDB",
                     desc: "Aplicación web para la gestión de citas en una clínica veterinaria. Permite registrar, editar y eliminar pacientes utilizando IndexedDB para persistencia de datos en el navegador.",
@@ -520,9 +527,8 @@ export default function App() {
                     tags: ["JavaScript", "Html", "CSS (Bootstrap)", "POO", "DOM Manipulation"],
                     github: "https://github.com/Juan2033/Control-de-gastos.git",
                     demo: "https://control-de-gastos-jcbc.netlify.app/",
-                  }
-
-
+                  },
+                  
 
                 ].map((p) => (
                   <article key={p.title} className="projectCard projectCard--slide" role="listitem">
@@ -616,6 +622,7 @@ export default function App() {
                     { name: "Flavia Karina", url: "https://www.flaviaquirogacomunicacion.com/", stack: "Website" },
                     { name: "Ous La Salut", url: "https://www.ouslasalut.com/", stack: "Website" },
                     { name: "Glia", url: "https://www.gliaformaciones.es/", stack: "Website" },
+                    { name: "Musica tarragona", url: "https://www.musicatarragona.net/", stack: "Website" },
                   ].map((s) => {
                     const host = new URL(s.url).hostname.replace("www.", "");
                     return (
