@@ -477,7 +477,7 @@ export default function App() {
                     desc: "Aplicación SPA desarrollada en React con animaciones personalizadas, carrusel con drag e inercia, sistema dinámico de experiencia profesional y diseño UI moderno enfocado en rendimiento y microinteracciones.",
                     tags: ["React", "JavaScript (ES6+)", "CSS", "DOM APIs", "ResizeObserver", "POO", "Event handling"],
                     github: "https://github.com/Juan2033/Buscador-de-vehiculos.git",
-                    demo: "https://buscador-vehiculos.netlify.app/",
+                    demo: "https://juanballesteros.netlify.app/",
                   },
                   {
                     title: "Cotizador de Préstamos – React",
