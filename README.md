@@ -1,16 +1,50 @@
-# React + Vite
+# Portafolio — Juan Camilo Ballesteros
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio personal construido con **React 19 + Vite**, enfocado en rendimiento
+(Core Web Vitals), accesibilidad y un enfoque **mobile-first**.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19 + Vite 7
+- CSS plano con design tokens (variables CSS), sin frameworks
+- `@fontsource/poppins` (subset latino, self-hosted)
+- `lucide-react` para iconografía
 
-## React Compiler
+## Scripts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install      # instalar dependencias
+npm run dev      # entorno de desarrollo
+npm run build    # build de producción (dist/)
+npm run preview  # previsualizar el build
+npm run lint     # ESLint
+```
 
-## Expanding the ESLint configuration
+## Arquitectura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── main.jsx              # punto de entrada + carga de fuentes (subset latino)
+├── App.jsx               # composición de la página (orquestador)
+├── index.css             # reset + design tokens (mobile-first)
+├── App.css               # estilos de componentes (mobile-first)
+├── data/
+│   └── resume.js         # única fuente de verdad (perfil, proyectos, experiencia…)
+├── hooks/
+│   ├── useDragScroll.js  # arrastre + inercia + snap del carrusel (reutilizable)
+│   └── useTypewriter.js  # efecto máquina de escribir
+└── components/
+    ├── Carousel.jsx      # carrusel accesible (consume useDragScroll)
+    ├── ProjectCard.jsx   # tarjeta de proyecto
+    ├── WebsiteCard.jsx   # tarjeta de sitio web
+    ├── Accordion.jsx     # acordeón accesible (aria-expanded / region)
+    ├── TechMarquee.jsx   # marquesina de tecnologías
+    └── GithubIcon.jsx    # icono SVG compartido
+```
+
+### Principios
+
+- **DRY**: lógica de carrusel y tarjetas centralizada; contenido separado de la UI en `data/resume.js`.
+- **Mobile-first**: los estilos base apuntan a móvil; los `@media (min-width)` escalan hacia arriba.
+- **Accesibilidad**: foco visible, `aria-*`, `prefers-reduced-motion`, textos alternativos.
+- **Rendimiento**: fuentes con subset latino, imagen del hero con prioridad de carga, sin dependencias pesadas.

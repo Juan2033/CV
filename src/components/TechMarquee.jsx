@@ -1,26 +1,24 @@
 export default function TechMarquee({ items = [], speed = 28 }) {
-  // Duplicamos para efecto infinito sin cortes
+  // Duplicamos la fila para un loop infinito sin cortes.
   const row = [...items, ...items];
 
   return (
-    <div className="techMarquee" style={{ ['--speed']: `${speed}s` }}>
-      <div className="techMarquee__fadeLeft" />
-      <div className="techMarquee__fadeRight" />
+    <div
+      className="marquee"
+      style={{ "--marquee-speed": `${speed}s` }}
+      aria-hidden="true"
+    >
+      <div className="marquee__fade marquee__fade--left" />
+      <div className="marquee__fade marquee__fade--right" />
 
-      <div className="techMarquee__track" aria-label="Tecnologías">
-        {row.map((t, idx) => (
-          <div className="techMarquee__item" key={`${t.label}-${idx}`}>
-            <img
-              src={t.icon}
-              alt={t.label}
-              loading="lazy"
-              width="46"
-              height="46"
-            />
-            <span>{t.label}</span>
-          </div>
+      <ul className="marquee__track">
+        {row.map((tech, idx) => (
+          <li className="marquee__item" key={`${tech.label}-${idx}`}>
+            <img src={tech.icon} alt={tech.label} loading="lazy" width="40" height="40" />
+            <span>{tech.label}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
