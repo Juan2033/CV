@@ -8,6 +8,7 @@ import WebsiteCard from "./components/WebsiteCard";
 import GithubIcon from "./components/GithubIcon";
 
 import { useTypewriter } from "./hooks/useTypewriter";
+import { useLang } from "./i18n/i18n.jsx";
 import {
   profile,
   projects,
@@ -15,15 +16,15 @@ import {
   websites,
   experience,
   education,
-  certifications,  
+  certifications,
   techStack,
 } from "./data/resume";
 import profileImg from "./assets/profile.jpeg";
 
-import { GraduationCap, Award, Briefcase, Linkedin } from "lucide-react";
-
+import { GraduationCap, Award, Briefcase, Linkedin, Languages } from "lucide-react";
 
 export default function App() {
+  const { t, tr, toggle } = useLang();
   const { typed, index } = useTypewriter(profile.roles);
   const nextRole = profile.roles[(index + 1) % profile.roles.length];
 
@@ -34,11 +35,25 @@ export default function App() {
           <a className="nav__logo" href="#top">
             {profile.shortName}
           </a>
-          <nav className="nav__links" aria-label="Navegación principal">
-            <a href="#about">Sobre mí</a>
-            <a href="#projects">Proyectos</a>
-            <a href="#contact">Contacto</a>
-          </nav>
+
+          <div className="nav__right">
+            <nav className="nav__links" aria-label="Navegación principal">
+              <a href="#about">{t("nav.about")}</a>
+              <a href="#projects">{t("nav.projects")}</a>
+              <a href="#contact">{t("nav.contact")}</a>
+            </nav>
+
+            <button
+              className="langToggle"
+              type="button"
+              onClick={toggle}
+              aria-label={t("lang.aria")}
+              title={t("lang.aria")}
+            >
+              <Languages size={16} aria-hidden="true" />
+              <span>{t("lang.label")}</span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -60,7 +75,7 @@ export default function App() {
             </div>
 
             <div className="hero__content">
-              <p className="hero__kicker">Hola 👋, soy</p>
+              <p className="hero__kicker">{t("hero.kicker")}</p>
               <h1 className="hero__title">{profile.name}</h1>
 
               <p className="hero__role" aria-label={profile.roles.join(", ")}>
@@ -92,8 +107,8 @@ export default function App() {
               </div>
 
               <div className="hero__cta">
-                <a className="btn btn--primary" href="#about">Conoce más de mí</a>
-                <a className="btn btn--ghost" href="#contact">Contacto</a>
+                <a className="btn btn--primary" href="#about">{t("hero.primary")}</a>
+                <a className="btn btn--ghost" href="#contact">{t("hero.contact")}</a>
               </div>
             </div>
           </div>
@@ -102,8 +117,8 @@ export default function App() {
         {/* ===================== ABOUT ===================== */}
         <section id="about" className="section">
           <div className="section__inner">
-            <h2 className="section__title">Sobre mí</h2>
-            <p className="section__lead">{profile.about}</p>
+            <h2 className="section__title">{t("about.title")}</h2>
+            <p className="section__lead">{tr(profile.about)}</p>
           </div>
         </section>
 
@@ -112,22 +127,36 @@ export default function App() {
         {/* ===================== PROJECTS ===================== */}
         <section id="projects" className="section">
           <div className="section__inner">
-            <h2 className="section__title">Proyectos</h2>
-            <p className="section__lead">Algunos proyectos destacados (código + demo).</p>
+            <h2 className="section__title">{t("projects.title")}</h2>
+            <p className="section__lead">{t("projects.lead")}</p>
 
-            <Carousel label="Proyectos destacados">
+            <Carousel label={t("projects.title")}>
               {projects.map((p) => (
-                <ProjectCard key={p.title} {...p} />
+                <ProjectCard
+                  key={p.demo}
+                  title={tr(p.title)}
+                  desc={tr(p.desc)}
+                  tags={p.tags}
+                  github={p.github}
+                  demo={p.demo}
+                  demoLabel={t("card.demo")}
+                />
               ))}
             </Carousel>
 
             <div className="subsection">
-              <h3 className="subsection__title">Sitios web</h3>
-              <p className="section__lead">Sitios en vivo de clientes.</p>
+              <h3 className="subsection__title">{t("websites.title")}</h3>
+              <p className="section__lead">{t("websites.lead")}</p>
 
-              <Carousel label="Sitios web de clientes">
+              <Carousel label={t("websites.title")}>
                 {websites.map((s) => (
-                  <WebsiteCard key={s.url} {...s} />
+                  <WebsiteCard
+                    key={s.url}
+                    name={s.name}
+                    url={s.url}
+                    liveLabel={t("card.live")}
+                    visitLabel={t("card.visit")}
+                  />
                 ))}
               </Carousel>
             </div>
@@ -137,14 +166,20 @@ export default function App() {
         {/* ===================== API PROJECTS ===================== */}
         <section id="api-projects" className="section">
           <div className="section__inner">
-            <h2 className="section__title">Proyectos con APIs</h2>
-            <p className="section__lead">
-              Proyectos que integran y consumen APIs externas para funcionalidades dinámicas.
-            </p>
+            <h2 className="section__title">{t("api.title")}</h2>
+            <p className="section__lead">{t("api.lead")}</p>
 
-            <Carousel label="Proyectos con APIs">
+            <Carousel label={t("api.title")}>
               {apiProjects.map((p) => (
-                <ProjectCard key={p.title} {...p} />
+                <ProjectCard
+                  key={p.demo}
+                  title={tr(p.title)}
+                  desc={tr(p.desc)}
+                  tags={p.tags}
+                  github={p.github}
+                  demo={p.demo}
+                  demoLabel={t("card.demo")}
+                />
               ))}
             </Carousel>
           </div>
@@ -155,7 +190,7 @@ export default function App() {
           <div className="section__inner">
             <h2 className="section__title section__title--icon">
               <Briefcase size={32} aria-hidden="true" />
-              Experiencia
+              {t("experience.title")}
             </h2>
 
             <div className="exp">
@@ -180,11 +215,11 @@ export default function App() {
                   <div className="exp__roles">
                     <Accordion
                       items={c.roles.map((r) => ({
-                        title: r.title,
+                        title: tr(r.title),
                         subtitle: r.dates,
                         content: (
                           <ul className="bullets">
-                            {r.bullets.map((b) => (
+                            {tr(r.bullets).map((b) => (
                               <li key={b}>{b}</li>
                             ))}
                           </ul>
@@ -205,12 +240,12 @@ export default function App() {
           <div className="section__inner">
             <h2 className="section__title section__title--icon">
               <GraduationCap size={32} aria-hidden="true" />
-              Educación
+              {t("education.title")}
             </h2>
 
             <div className="grid grid--cards">
               {education.map((e) => (
-                <div key={e.title + e.institution} className="miniCard">
+                <div key={e.institution} className="miniCard">
                   <div className="miniCard__logo">
                     {e.logo ? (
                       <e.logo size={36} aria-hidden="true" />
@@ -219,7 +254,7 @@ export default function App() {
                     )}
                   </div>
                   <div>
-                    <h3 className="miniCard__title">{e.title}</h3>
+                    <h3 className="miniCard__title">{tr(e.title)}</h3>
                     <p className="miniCard__meta miniCard__meta--accent">{e.institution}</p>
                     <p className="miniCard__meta">{e.dates}</p>
                   </div>
@@ -234,12 +269,12 @@ export default function App() {
           <div className="section__inner">
             <h2 className="section__title section__title--icon">
               <Award size={32} aria-hidden="true" />
-              Certificaciones
+              {t("certifications.title")}
             </h2>
 
             <div className="grid grid--cards">
               {certifications.map((c) => (
-                <div key={c.title} className="miniCard">
+                <div key={tr(c.title)} className="miniCard">
                   <div className="miniCard__logo">
                     {c.logo ? (
                       <img src={c.logo} alt={c.issuer} />
@@ -248,7 +283,7 @@ export default function App() {
                     )}
                   </div>
                   <div>
-                    <h3 className="miniCard__title">{c.title}</h3>
+                    <h3 className="miniCard__title">{tr(c.title)}</h3>
                     <p className="miniCard__meta miniCard__meta--accent">{c.issuer}</p>
                     <p className="miniCard__meta">{c.year}</p>
                     {c.url && (
@@ -258,7 +293,7 @@ export default function App() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Ver credencial ↗
+                        {t("card.credential")}
                       </a>
                     )}
                   </div>
@@ -266,13 +301,13 @@ export default function App() {
               ))}
             </div>
           </div>
-        </section>        
+        </section>
 
         {/* ===================== CONTACT ===================== */}
         <section id="contact" className="section">
           <div className="section__inner">
-            <h2 className="section__title">Contacto</h2>
-            <p className="section__lead">¿Hablamos? Escríbeme y te respondo lo antes posible.</p>
+            <h2 className="section__title">{t("contact.title")}</h2>
+            <p className="section__lead">{t("contact.lead")}</p>
 
             <div className="contact">
               <div className="contact__row">
@@ -302,7 +337,7 @@ export default function App() {
         <div className="footer__inner">
           <p className="footer__copy">© {new Date().getFullYear()} {profile.shortName}</p>
           <p className="footer__made">
-            Hecho con <span className="footer__heart" aria-hidden="true">❤</span> desde Palmira, Colombia
+            {t("footer.made")} <span className="footer__heart" aria-hidden="true">❤</span> {t("footer.from")}
           </p>
         </div>
       </footer>

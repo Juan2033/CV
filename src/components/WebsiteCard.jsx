@@ -1,7 +1,7 @@
 const faviconUrl = (url) =>
   `https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(url)}`;
 
-export default function WebsiteCard({ name, url }) {
+export default function WebsiteCard({ name, url, liveLabel = "Sitio en vivo", visitLabel = "Visitar ↗" }) {
   const host = new URL(url).hostname.replace(/^www\./, "");
 
   return (
@@ -23,11 +23,15 @@ export default function WebsiteCard({ name, url }) {
         <div className="websiteCard__footer">
           <span className="statusBadge">
             <span className="statusBadge__dot" aria-hidden="true" />
-            Sitio en vivo
+            {liveLabel}
           </span>
-          
-            <a className="btn btn--ghost websiteCard__cta" href={url} target="_blank" rel="noopener noreferrer">
-            Visitar ↗
+          <a
+            className="btn btn--ghost websiteCard__cta"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {visitLabel}
           </a>
         </div>
       </div>

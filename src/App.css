@@ -861,3 +861,35 @@
   background: var(--accent-soft);
   color: var(--accent-hi);
 }
+
+/* ---------- Selector de idioma ---------- */
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.langToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 38px;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.langToggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-hover);
+  color: var(--accent-hi);
+}
+.langToggle svg {
+  color: var(--accent);
+}

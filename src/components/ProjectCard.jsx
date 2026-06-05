@@ -1,6 +1,6 @@
 import GithubIcon from "./GithubIcon";
 
-export default function ProjectCard({ title, desc, tags, github, demo }) {
+export default function ProjectCard({ title, desc, tags, github, demo, demoLabel = "Demo ↗" }) {
   return (
     <article className="card" role="listitem" data-card>
       <div className="card__body">
@@ -21,7 +21,7 @@ export default function ProjectCard({ title, desc, tags, github, demo }) {
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Ver el código de ${title} en GitHub`}
+            aria-label={`GitHub: ${title}`}
           >
             <GithubIcon />
           </a>
@@ -31,7 +31,7 @@ export default function ProjectCard({ title, desc, tags, github, demo }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Demo ↗
+            {demoLabel}
           </a>
         </div>
       </div>
