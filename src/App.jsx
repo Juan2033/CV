@@ -15,15 +15,13 @@ import {
   websites,
   experience,
   education,
-  certifications,
-  courses,
+  certifications,  
   techStack,
 } from "./data/resume";
 import profileImg from "./assets/profile.jpeg";
 
-import { GraduationCap, Award, BookOpen, Briefcase, Linkedin } from "lucide-react";
+import { GraduationCap, Award, Briefcase, Linkedin } from "lucide-react";
 
-const totalCourses = courses.reduce((acc, c) => acc + c.count, 0);
 
 export default function App() {
   const { typed, index } = useTypewriter(profile.roles);
@@ -268,36 +266,7 @@ export default function App() {
               ))}
             </div>
           </div>
-        </section>
-
-        {/* ===================== COURSES ===================== */}
-        <section id="courses" className="section">
-          <div className="section__inner">
-            <h2 className="section__title section__title--icon">
-              <BookOpen size={32} aria-hidden="true" />
-              Cursos
-            </h2>
-
-            <p className="section__lead">
-              Total de cursos finalizados: <span className="kpi">{totalCourses}</span>
-            </p>
-
-            <Accordion
-              items={courses.map((c) => ({
-                logo: c.logo,
-                title: c.provider,
-                subtitle: `${c.count} ${c.count === 1 ? "curso finalizado" : "cursos finalizados"}`,
-                content: (
-                  <ul className="bullets">
-                    {c.items.map((it) => (
-                      <li key={it}>{it}</li>
-                    ))}
-                  </ul>
-                ),
-              }))}
-            />
-          </div>
-        </section>
+        </section>        
 
         {/* ===================== CONTACT ===================== */}
         <section id="contact" className="section">

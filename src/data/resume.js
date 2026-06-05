@@ -107,6 +107,7 @@ export const apiProjects = [
 
 export const websites = [
   { name: "Ugga Street Burger", url: "https://www.uggastreetburger.com/" },
+  { name: "Terapias Antay", url: "https://www.antaybienestarintegral.com/" },
   { name: "Concepta", url: "https://www.conceptacollective.es/" },
   { name: "Centro Horitzo", url: "https://www.centrohoritzo.es/" },
   { name: "Dairys Marquez", url: "https://www.dairysmarquezbellezaintegral.com/" },
@@ -125,12 +126,12 @@ export const experience = [
   {
     logo: "/logos/ORBIDI.png",
     company: "Orbidi",
-    period: "2024 – Actualidad",
+    period: "2024 – 2026",
     url: "https://orbidi.com",
     roles: [
       {
         title: "Implementador Web / SEO",
-        dates: "2024 – Actualidad",
+        dates: "2024 – 2026",
         bullets: [
           "Desarrollé e implementé sitios web según los requerimientos del cliente, aplicando estándares de calidad, buenas prácticas y optimización para motores de búsqueda.",
           "Configuré, personalicé y mantuve CMS como WordPress, Shopify, PrestaShop y Wix para distintos tipos de proyectos.",
@@ -190,8 +191,16 @@ export const education = [
 ];
 
 export const certifications = [
-  { title: "JavaScript Moderno", issuer: "Udemy", year: "2025", logo: "/logos/udemy.svg" },
-  { title: "CSS: La guía completa", issuer: "Udemy", year: "2025", logo: "/logos/udemy.svg" },
+  { title: "JavaScript Moderno", 
+    issuer: "Udemy", 
+    year: "2025", 
+    url:"https://www.udemy.com/certificate/UC-84e6c162-fe39-4c68-a74c-78a781950e04/",
+    logo: "/logos/udemy.svg" },
+  { title: "CSS: La guía completa", 
+    issuer: "Udemy", 
+    year: "2025", 
+    url:"https://www.udemy.com/certificate/UC-d2cf7bb8-6c72-490a-ad43-720c26038528/",
+    logo: "/logos/udemy.svg" },
   {
     title: "Claude Code in Action",
     issuer: "Anthropic Education",
@@ -206,6 +215,54 @@ export const certifications = [
     url: "https://drive.google.com/file/d/1VrSDT0x1GmUu6L5QQZJ1ML6Yw0q_fUvv/view?usp=sharing",
     logo: "/logos/big-school.svg",
   },
+  {
+    title: "Ethical Hacker",
+    issuer: "Cisco Networking Academy",
+    year: "2025",
+    url: "https://www.credly.com/badges/69a65fb5-c4c5-4201-9cf6-87525f755e43/linked_in_profile",
+    logo: "./logos/cisco.png",
+    
+  },
+  {
+    title: "Uso de Microsoft Excel",
+    issuer: "Servicio Nacional de Aprendizaje (SENA)",
+    year: "2022",
+    url: "https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer",
+    logo: "./logos/sena.png",
+    
+  },
+  {
+    title: "SG-SST",
+    issuer: "Servicio Nacional de Aprendizaje (SENA)",
+    year: "2021",
+    url: "https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer",
+    logo: "./logos/sena.png",
+    
+  },
+  {
+    title: "C++",
+    issuer: "Servicio Nacional de Aprendizaje (SENA)",
+    year: "2023",
+    url: "https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer",
+    logo: "./logos/sena.png",
+    
+  },
+  {
+    title: "C++ (Nivel I)",
+    issuer: "Servicio Nacional de Aprendizaje (SENA)",
+    year: "2023",
+    url: "https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer",
+    logo: "./logos/sena.png",
+    
+  },
+  {
+    title: "C++ (Nivel II)",
+    issuer: "Servicio Nacional de Aprendizaje (SENA)",
+    year: "2023",
+    url: "https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer",
+    logo: "./logos/sena.png",
+    
+  }
 ];
 
 export const courses = [

@@ -19,15 +19,14 @@ export default function WebsiteCard({ name, url }) {
           {name}
         </h3>
         <p className="card__desc card__desc--tight">{host}</p>
-        <span className="tag">Sitio en vivo</span>
 
-        <div className="card__actions card__actions--full">
-          <a
-            className="btn btn--ghost card__demo"
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <div className="websiteCard__footer">
+          <span className="statusBadge">
+            <span className="statusBadge__dot" aria-hidden="true" />
+            Sitio en vivo
+          </span>
+          
+            <a className="btn btn--ghost websiteCard__cta" href={url} target="_blank" rel="noopener noreferrer">
             Visitar ↗
           </a>
         </div>
