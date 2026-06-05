@@ -185,9 +185,16 @@ export const education = [
   {
     title: "Ingeniero de Software",
     institution: "Corporación Universitaria Iberoamericana",
-    dates: "2019 – 2025",
+    dates: "2022 – 2025",
     logo: Settings,
   },
+  {
+    title: "Analisis y desarrollo de sistemas de información",
+    institution: "Servicio Nacional de Aprendizaje",
+    dates: "2020 – 2022",
+    logo: Settings,
+  },
+  
 ];
 
 export const certifications = [
