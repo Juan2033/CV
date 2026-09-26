@@ -5,6 +5,7 @@ import Carousel from "./components/Carousel";
 import ProjectCard from "./components/ProjectCard";
 import TechMarquee from "./components/TechMarquee";
 import WebsiteCard from "./components/WebsiteCard";
+import StoreCard from "./components/StoreCard";
 import GithubIcon from "./components/GithubIcon";
 
 import { useTypewriter } from "./hooks/useTypewriter";
@@ -13,6 +14,7 @@ import {
   profile,
   projects,
   apiProjects,
+  stores,
   websites,
   experience,
   education,
@@ -21,7 +23,10 @@ import {
 } from "./data/resume";
 import profileImg from "./assets/profile.jpeg";
 
-import { GraduationCap, Award, Briefcase, Linkedin, Languages } from "lucide-react";
+import { GraduationCap, Award, Briefcase, Linkedin, Languages, ShoppingBag } from "lucide-react";
+
+const builtStores = stores.filter((s) => s.kind === "built");
+const optimizedStores = stores.filter((s) => s.kind === "optimized");
 
 export default function App() {
   const { t, tr, toggle } = useLang();
@@ -39,6 +44,7 @@ export default function App() {
           <div className="nav__right">
             <nav className="nav__links" aria-label="Navegación principal">
               <a href="#about">{t("nav.about")}</a>
+              <a href="#ecommerce">{t("nav.ecommerce")}</a>
               <a href="#projects">{t("nav.projects")}</a>
               <a href="#contact">{t("nav.contact")}</a>
             </nav>
@@ -124,6 +130,60 @@ export default function App() {
 
         <TechMarquee items={techStack} speed={26} />
 
+        {/* ===================== ECOMMERCE ===================== */}
+        <section id="ecommerce" className="section">
+          <div className="section__inner">
+            <h2 className="section__title section__title--icon">
+              <ShoppingBag size={32} aria-hidden="true" />
+              {t("stores.title")}
+            </h2>
+            <p className="section__lead">{t("stores.lead")}</p>
+
+            <h3 className="subsection__title stores__groupTitle">{t("stores.built")}</h3>
+            <div className="stores__featured" role="list" aria-label={t("stores.built")}>
+              {builtStores.map((s) => (
+                <StoreCard
+                  key={s.name}
+                  featured
+                  name={s.name}
+                  brand={tr(s.brand)}
+                  desc={tr(s.desc)}
+                  tags={s.tags}
+                  url={s.url}
+                  image={s.image}
+                  kindLabel={t("stores.kind.built")}
+                  liveLabel={t("card.live")}
+                  devLabel={t("card.dev")}
+                  visitLabel={t("card.visit")}
+                />
+              ))}
+            </div>
+
+            <div className="subsection">
+              <h3 className="subsection__title">{t("stores.optimized")}</h3>
+              <p className="section__lead">{t("stores.optimizedLead")}</p>
+
+              <Carousel label={t("stores.optimized")}>
+                {optimizedStores.map((s) => (
+                  <StoreCard
+                    key={s.name}
+                    name={s.name}
+                    brand={tr(s.brand)}
+                    desc={tr(s.desc)}
+                    tags={s.tags}
+                    url={s.url}
+                    image={s.image}
+                    kindLabel={t("stores.kind.optimized")}
+                    liveLabel={t("card.live")}
+                    devLabel={t("card.dev")}
+                    visitLabel={t("card.visit")}
+                  />
+                ))}
+              </Carousel>
+            </div>
+          </div>
+        </section>
+
         {/* ===================== PROJECTS ===================== */}
         <section id="projects" className="section">
           <div className="section__inner">
@@ -154,6 +214,7 @@ export default function App() {
                     key={s.url}
                     name={s.name}
                     url={s.url}
+                    platform="WordPress"
                     liveLabel={t("card.live")}
                     visitLabel={t("card.visit")}
                   />
@@ -206,7 +267,7 @@ export default function App() {
                     </div>
                     <div className="exp__meta">
                       <h3 className="exp__company">{c.company}</h3>
-                      <span className="exp__period">{c.period}</span>
+                      <span className="exp__period">{tr(c.period)}</span>
                     </div>
                   </div>
 
@@ -216,7 +277,7 @@ export default function App() {
                     <Accordion
                       items={c.roles.map((r) => ({
                         title: tr(r.title),
-                        subtitle: r.dates,
+                        subtitle: tr(r.dates),
                         content: (
                           <ul className="bullets">
                             {tr(r.bullets).map((b) => (

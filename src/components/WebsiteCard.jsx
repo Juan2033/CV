@@ -1,7 +1,13 @@
 const faviconUrl = (url) =>
   `https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(url)}`;
 
-export default function WebsiteCard({ name, url, liveLabel = "Sitio en vivo", visitLabel = "Visitar ↗" }) {
+export default function WebsiteCard({
+  name,
+  url,
+  platform,
+  liveLabel = "Sitio en vivo",
+  visitLabel = "Visitar ↗",
+}) {
   const host = new URL(url).hostname.replace(/^www\./, "");
 
   return (
@@ -19,6 +25,13 @@ export default function WebsiteCard({ name, url, liveLabel = "Sitio en vivo", vi
           {name}
         </h3>
         <p className="card__desc card__desc--tight">{host}</p>
+
+        {platform && (
+          <span className="platformBadge">
+            <img src="/assets/tech/wordpress.svg" alt="" width="14" height="14" />
+            {platform}
+          </span>
+        )}
 
         <div className="websiteCard__footer">
           <span className="statusBadge">

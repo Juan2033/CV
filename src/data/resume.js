@@ -3,10 +3,10 @@ import { Settings } from "lucide-react";
 export const profile = {
   name: "Juan Camilo Ballesteros Carmona",
   shortName: "Juan Camilo",
-  roles: ["Frontend Developer", "Junior Cybersecurity Analyst"],
+  roles: ["Ecommerce Developer", "Frontend Developer", "Junior Cybersecurity Analyst"],
   about: {
-    es: "Desarrollador Web con +3 años de experiencia en Frontend, WordPress y optimización SEO. Con formación en ciberseguridad, enfocado en rendimiento, accesibilidad y resultados medibles.",
-    en: "Web developer with 3+ years of experience in Frontend, WordPress and SEO optimization. With a background in cybersecurity, focused on performance, accessibility and measurable results.",
+    es: "Desarrollador Web con +3 años de experiencia en Frontend, Shopify, WordPress y optimización SEO. Actualmente Ecommerce Developer en Asylum Marketing, donde construyo y optimizo tiendas Shopify. Con formación en ciberseguridad, enfocado en rendimiento, accesibilidad y resultados medibles.",
+    en: "Web developer with 3+ years of experience in Frontend, Shopify, WordPress and SEO optimization. Currently an Ecommerce Developer at Asylum Marketing, building and optimizing Shopify stores. With a background in cybersecurity, focused on performance, accessibility and measurable results.",
   },
   social: {
     github: "https://github.com/Juan2033",
@@ -133,6 +133,80 @@ export const apiProjects = [
   },
 ];
 
+// Tiendas Shopify (Asylum Marketing).
+// kind: "built" = desarrollada desde cero · "optimized" = mantenimiento y optimización
+// url: null cuando la tienda aún no está publicada
+export const stores = [
+  {
+    name: "Somos Bienestar",
+    brand: "Megalabs Colombia",
+    kind: "built",
+    url: "https://somosbienestar.com.co/",
+    image: "/stores/somos-bienestar.webp",
+    desc: {
+      es: "Tienda de salud y bienestar desarrollada desde cero: arquitectura del tema, secciones personalizadas, catálogo por categorías, marcas y kits.",
+      en: "Health & wellness store built from scratch: theme architecture, custom sections and a catalog organized by categories, brands and kits.",
+    },
+    tags: ["Shopify", "Liquid", "JavaScript", "CSS"],
+  },
+  {
+    name: "We Vow",
+    brand: { es: "Ropa médica · EE. UU.", en: "Medical apparel · USA" },
+    kind: "built",
+    url: null,
+    image: "/stores/we-vow.webp",
+    desc: {
+      es: "Tienda de ropa médica para el mercado estadounidense, desarrollada desde cero con secciones a medida como “Shop by Color” y navegación por colección.",
+      en: "Medical apparel store for the US market, built from scratch with custom sections such as “Shop by Color” and collection-based navigation.",
+    },
+    tags: ["Shopify", "Liquid", "JavaScript", "CSS"],
+  },
+  {
+    name: "The Beauty Corner",
+    kind: "optimized",
+    url: "https://thebeautycornerstore.com/",
+    image: "/stores/beauty-corner.webp",
+    desc: {
+      es: "Cambios y ajustes de UI, nuevas funcionalidades y optimización de Core Web Vitals.",
+      en: "UI changes and adjustments, new features and Core Web Vitals optimization.",
+    },
+    tags: ["Shopify", "Liquid", "Core Web Vitals"],
+  },
+  {
+    name: "El Duque Boutique",
+    kind: "optimized",
+    url: "https://www.elduque.com.co/",
+    image: "/stores/el-duque.webp",
+    desc: {
+      es: "Cambios y ajustes de UI, nuevas funcionalidades y optimización de Core Web Vitals.",
+      en: "UI changes and adjustments, new features and Core Web Vitals optimization.",
+    },
+    tags: ["Shopify", "Liquid", "Core Web Vitals"],
+  },
+  {
+    name: "Antony Morato",
+    kind: "optimized",
+    url: "https://antonymorato.com.co/",
+    image: "/stores/antony-morato.webp",
+    desc: {
+      es: "Cambios y ajustes de UI, nuevas funcionalidades y optimización de Core Web Vitals.",
+      en: "UI changes and adjustments, new features and Core Web Vitals optimization.",
+    },
+    tags: ["Shopify", "Liquid", "Core Web Vitals"],
+  },
+  {
+    name: "Padova",
+    kind: "optimized",
+    url: "https://padova.com.co/",
+    image: "/stores/padova.webp",
+    desc: {
+      es: "Cambios y ajustes de UI, nuevas funcionalidades y optimización de Core Web Vitals.",
+      en: "UI changes and adjustments, new features and Core Web Vitals optimization.",
+    },
+    tags: ["Shopify", "Liquid", "Core Web Vitals"],
+  },
+];
+
 export const websites = [
   { name: "Ugga Street Burger", url: "https://www.uggastreetburger.com/" },
   { name: "Concepta", url: "https://www.conceptacollective.es/" },
@@ -147,6 +221,30 @@ export const websites = [
 ];
 
 export const experience = [
+  {
+    company: "Asylum Marketing",
+    period: { es: "Jun 2026 – Actualidad", en: "Jun 2026 – Present" },
+    roles: [
+      {
+        title: "Ecommerce Developer",
+        dates: { es: "Jun 2026 – Actualidad", en: "Jun 2026 – Present" },
+        bullets: {
+          es: [
+            "Desarrollo tiendas Shopify desde cero, del diseño a producción: Somos Bienestar (Megalabs Colombia) y We Vow (EE. UU., en desarrollo).",
+            "Construyo secciones y bloques personalizados en Liquid, JavaScript y CSS sobre Online Store 2.0, editables por el cliente desde el personalizador del tema.",
+            "Optimizo el rendimiento y los Core Web Vitals (LCP, INP, CLS) de tiendas en producción.",
+            "Mantengo y evoluciono tiendas de moda y belleza con cambios de UI y nuevas funcionalidades: The Beauty Corner, El Duque Boutique, Antony Morato y Padova.",
+          ],
+          en: [
+            "Build Shopify stores from scratch, from design to production: Somos Bienestar (Megalabs Colombia) and We Vow (USA, in development).",
+            "Create custom sections and blocks with Liquid, JavaScript and CSS on Online Store 2.0, editable by clients from the theme editor.",
+            "Optimize performance and Core Web Vitals (LCP, INP, CLS) on live stores.",
+            "Maintain and evolve fashion and beauty stores with UI changes and new features: The Beauty Corner, El Duque Boutique, Antony Morato and Padova.",
+          ],
+        },
+      },
+    ],
+  },
   {
     logo: "/logos/ORBIDI.png",
     company: "Orbidi",
@@ -322,6 +420,7 @@ export const techStack = [
   { label: "CSS3", icon: "/assets/tech/css.svg" },
   { label: "JavaScript", icon: "/assets/tech/javascript.svg" },
   { label: "React", icon: "/assets/tech/react.svg" },
+  { label: "Shopify", icon: "/assets/tech/shopify.svg" },
   { label: "Git", icon: "/assets/tech/git.svg" },
   { label: "GitHub", icon: "/assets/tech/github.svg" },
   { label: "Elementor", icon: "/assets/tech/wordpress.svg" },

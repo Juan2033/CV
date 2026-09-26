@@ -862,6 +862,104 @@
   color: var(--accent-hi);
 }
 
+.platformBadge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.34rem 0.75rem 0.34rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+}
+
+/* ---------- Tiendas Shopify (Ecommerce) ---------- */
+.stores__groupTitle {
+  margin-top: var(--space-5);
+}
+.stores__featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+.stores__featured > .card {
+  min-width: 0;
+}
+
+.storeCard__shot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+.storeCard__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s var(--ease);
+}
+.storeCard:hover .storeCard__shot img {
+  transform: scale(1.04);
+}
+
+.storeCard__kind {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--accent-line);
+  background: rgba(12, 16, 28, 0.78);
+  backdrop-filter: blur(6px);
+}
+.storeCard--featured .storeCard__kind {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), #5a39d6);
+}
+
+.storeCard__title {
+  margin-bottom: var(--space-1);
+}
+.storeCard__brand {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+.statusBadge--dev {
+  border-color: rgba(255, 184, 77, 0.35);
+  background: rgba(255, 184, 77, 0.10);
+}
+.statusBadge--dev .statusBadge__dot {
+  background: #ffb84d;
+  box-shadow: 0 0 0 3px rgba(255, 184, 77, 0.18);
+  animation: none;
+}
+
+@media (min-width: 768px) {
+  .stores__featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storeCard__shot img { transition: none; }
+  .storeCard:hover .storeCard__shot img { transform: none; }
+}
+
 /* ---------- Selector de idioma ---------- */
 .nav__right {
   display: flex;
