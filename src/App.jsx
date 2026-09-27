@@ -20,6 +20,7 @@ import {
   education,
   certifications,
   techStack,
+  aboutStats,
 } from "./data/resume";
 import profileImg from "./assets/profile.jpeg";
 
@@ -123,8 +124,21 @@ export default function App() {
         {/* ===================== ABOUT ===================== */}
         <section id="about" className="section">
           <div className="section__inner">
-            <h2 className="section__title">{t("about.title")}</h2>
-            <p className="section__lead">{tr(profile.about)}</p>
+            <div className="about">
+              <div>
+                <h2 className="section__title">{t("about.title")}</h2>
+                <p className="section__lead">{tr(profile.about)}</p>
+              </div>
+
+              <ul className="about__stats">
+                {aboutStats.map((s) => (
+                  <li key={s.value} className="about__stat">
+                    <span className="about__statValue">{s.value}</span>
+                    <span className="about__statLabel">{tr(s.label)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 

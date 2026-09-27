@@ -220,6 +220,13 @@ export const websites = [
   { name: "Musica Tarragona", url: "https://www.musicatarragona.net/" },
 ];
 
+export const aboutStats = [
+  { value: "+3", label: { es: "años de experiencia", en: "years of experience" } },
+  { value: String(stores.length), label: { es: "tiendas Shopify", en: "Shopify stores" } },
+  { value: "12+", label: { es: "sitios WordPress", en: "WordPress sites" } },
+  { value: "~40%", label: { es: "menos tiempo de desarrollo", en: "faster development" } },
+];
+
 export const experience = [
   {
     logo: "/logos/asylum-marketing.png",
