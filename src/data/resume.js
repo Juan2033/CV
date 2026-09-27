@@ -222,6 +222,7 @@ export const websites = [
 
 export const experience = [
   {
+    logo: "/logos/asylum-marketing.png",
     company: "Asylum Marketing",
     period: { es: "Jun 2026 – Actualidad", en: "Jun 2026 – Present" },
     roles: [
